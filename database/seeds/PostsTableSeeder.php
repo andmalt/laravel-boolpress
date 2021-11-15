@@ -14,12 +14,13 @@ class PostsTableSeeder extends Seeder
     public function run(Faker $faker)
     {
         for($i=0; $i<100; $i++){
+
             $newPost = new Post();
-            $newPost->title = $faker->sentence(3);
+            $newPost->title = $faker->sentence(2);
             $newPost->author = $faker->name();
             $newPost->post_date = $faker->dateTime();
             $newPost->post_content = $faker->paragraph(7,true);
-            $newPost->image_url = $faker->imageUrl(640,480,'post',true,'', true);
+            $newPost->image_url = $faker->imageUrl(640,480,$newPost->title,true,$newPost->author, true);
             $newPost->save();
         }
     }
