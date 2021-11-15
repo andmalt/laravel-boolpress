@@ -15,6 +15,8 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+
+                    <a class="btn btn-danger m-3" href="{{ route('admin.post.index') }}">Got to posts</a>
                 </div>
             </div>
         </div>

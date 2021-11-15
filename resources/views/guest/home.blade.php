@@ -16,12 +16,12 @@
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
-                height: 100vh;
+                min-height: 100vh;
                 margin: 0;
             }
 
             .full-height {
-                height: 100vh;
+                min-height: 100vh;
             }
 
             .flex-center {
@@ -68,7 +68,7 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ route('admin.home') }}">Home</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
