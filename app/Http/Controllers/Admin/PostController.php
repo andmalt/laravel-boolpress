@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use Illuminate\Support\Carbon;
 
 class PostController extends Controller
 {
@@ -37,7 +38,17 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $data['post_date'] = Carbon::now();
+
+        $newPost = new Post();
+
+        $newPost->fill($data);
+
+
+        $newPost->save();
+
+        return redirect()->route('admin.post.index', compact('newPost'));
     }
 
     /**
