@@ -18,7 +18,7 @@
                     @foreach ($posts as $post)
                     <tr>
                         <th scope="row">{{$post->id}}</th>
-                        <td>{{$post->title}}</td>
+                        <td><a href="{{ route('admin.post.show', $post->id ) }}">{{$post->title}}</a></td>
                         <td>{{$post->author}}</td>
                         <td>{{$post->post_date}}</td>
                     </tr>
