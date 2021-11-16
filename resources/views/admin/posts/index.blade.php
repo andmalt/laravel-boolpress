@@ -26,9 +26,16 @@
                   <td><a href="{{ route('admin.post.show', $post->id ) }}">{{$post->title}}</a></td>
                   <td>{{$post->author}}</td>
                   <td>{{$post->getFormattedDate('post_date')}}</td>
-                  <td><a class="btn btn-warning px-1" href="{{ route('admin.post.edit', $post->id ) }}">Modifica post</a></td>
+                  <td><a class="btn btn-warning px-3" href="{{ route('admin.post.edit', $post->id ) }}">Modifica</a></td>
+                  <td>
+                    <form action="{{ route('admin.post.destroy', $post->id ) }}" method="post">
+                      @csrf
 
-                  <td><a class="btn btn-danger px-1" href="">Cancella post</a></td>
+                      @method('DELETE')
+                      
+                        <button class="btn btn-danger px-3" type="submit">Cancella</button>
+                    </form>
+                  </td>
               </tr>
               @endforeach
             
