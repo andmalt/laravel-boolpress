@@ -26,7 +26,7 @@
                   <td><a href="{{ route('admin.post.show', $post->id ) }}">{{$post->title}}</a></td>
                   <td>{{$post->author}}</td>
                   <td>{{$post->getFormattedDate('post_date')}}</td>
-                  <td><a class="btn btn-warning px-1" href="">Modifica post</a></td>
+                  <td><a class="btn btn-warning px-1" href="{{ route('admin.post.edit', $post->id ) }}">Modifica post</a></td>
 
                   <td><a class="btn btn-danger px-1" href="">Cancella post</a></td>
               </tr>
