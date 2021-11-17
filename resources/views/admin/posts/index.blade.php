@@ -14,6 +14,7 @@
               <th scope="col">Title</th>
               <th scope="col">Author</th>
               <th scope="col">Post Date</th>
+              <th scope="col">Category</th>
               <th scope="col"></th>
               <th scope="col"></th>
             </tr>
@@ -26,6 +27,7 @@
                   <td><a href="{{ route('admin.post.show', $post->id ) }}">{{$post->title}}</a></td>
                   <td>{{$post->author}}</td>
                   <td>{{$post->getFormattedDate('post_date')}}</td>
+                  <td>{{$post->category_id}}</td>
                   <td><a class="btn btn-warning px-3" href="{{ route('admin.post.edit', $post->id ) }}">Modifica</a></td>
                   <td>
                     <form action="{{ route('admin.post.destroy', $post->id ) }}" method="post">

@@ -7,8 +7,13 @@
             <div class="card mb-3">
                 <img src="{{$post->image_url}}" class="card-img-top" alt="{{$post->name}} image">
                 <div class="card-body">
-                  <h5 class="card-title">{{$post->title}}</h5>
-                  <h6 class="card-title">{{$post->author}}</h6>
+                  <h4 class="card-title">{{$post->title}}</h4>
+                  <h5 class="card-title">by {{$post->author}}</h5> 
+                  @if ($post->category_id == null)
+                        <p class="card-text">Non ha categorie</p>
+                  @else
+                    <p class="card-text">{{$post->category_id}}</p> 
+                  @endif                                   
                   <p class="card-text"><small class="text-muted">{{$post->getFormattedDate('post_date')}}</small></p>
                   <p class="card-text">{{$post->post_content}}</p>
                   

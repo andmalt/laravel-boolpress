@@ -7,6 +7,14 @@
             <form action="{{ route('admin.post.update', $post->id ) }}" method="post">
                 @csrf
 
+                <label for="category_id"></label>
+                <select class="form-select my-3" name="category_id" id="category_id" aria-label="Default select example">
+                    <option  >Open this select menu</option>
+                    @foreach ($categories as $category)
+                    <option value="{{$category->id}}">{{$category->name}}</option>
+                    @endforeach
+                </select>
+
                 @method('PATCH')
                 <div class="mb-3">
                     <label for="title" class="form-label">Titolo</label>
