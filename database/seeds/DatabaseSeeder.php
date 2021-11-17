@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\Post;
-use App\Models\Category;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -15,6 +14,8 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
 
         $this->call([
+            UsersTableSeeder::class,
+            UserInfoTableSeeder::class,
             PostsTableSeeder::class ,
             CategoriesTableSeeder::class,
         ]);

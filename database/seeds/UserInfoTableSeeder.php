@@ -13,7 +13,7 @@ class UserInfoTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for($i = 0; $i < 10; $i++){
+        for($i = 0; $i < 20; $i++){
             $userInfo = new UserInfo();
             $userInfo->phone = $faker->phoneNumber();
             $userInfo->country = $faker->country();
