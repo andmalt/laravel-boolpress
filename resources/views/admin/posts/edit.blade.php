@@ -4,14 +4,22 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12 col-md-10 col-lg-8">
+            <h3>Modifica Post</h3>
             <form action="{{ route('admin.post.update', $post->id ) }}" method="post">
                 @csrf
 
-                <label for="category_id"></label>
+
+                <label for="category_id">Categoria</label>
                 <select class="form-select my-3" name="category_id" id="category_id" aria-label="Default select example">
-                    <option  >Open this select menu</option>
+                    <option value="" >Open this select menu</option>
                     @foreach ($categories as $category)
-                    <option value="{{$category->id}}">{{$category->name}}</option>
+                    <option 
+                    @if (old('category_id') == $category->id){
+                        selected
+                    }
+                    @endif 
+                        value="{{$category->id}}">{{$category->name}}
+                    </option>
                     @endforeach
                 </select>
 

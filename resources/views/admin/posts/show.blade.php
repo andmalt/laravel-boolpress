@@ -9,11 +9,11 @@
                 <div class="card-body">
                   <h4 class="card-title">{{$post->title}}</h4>
                   <h5 class="card-title">by {{$post->author}}</h5> 
-                  @if ($post->category_id == null)
-                        <p class="card-text">Non ha categorie</p>
+                  @if ($post->category)
+                  <p>Categoria di {{$post->category->name}}</p>
                   @else
-                    <p class="card-text">{{$post->category_id}}</p> 
-                  @endif                                   
+                  <p>Non ha categoria</p>
+                  @endif                                  
                   <p class="card-text"><small class="text-muted">{{$post->getFormattedDate('post_date')}}</small></p>
                   <p class="card-text">{{$post->post_content}}</p>
                   
