@@ -9,6 +9,6 @@ class UserInfo extends Model
     protected  $fillable = ['phone','country','address'];
 
     public function user(){
-        
+        return $this->belongsTo('App\User');
     }
 }
