@@ -50,7 +50,7 @@ class PostController extends Controller
             'image_url'=>'string'
         ],
         [
-            'required'=>'Devi compilare correttamente il campo',
+            'required'=>'Devi compilare correttamente il campo :attribute',
             'post_content.min'=>'Il post deve essere lungo almeno di 20 caratteri',
         ]);
 

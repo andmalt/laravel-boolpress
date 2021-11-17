@@ -27,7 +27,11 @@
                   <td><a href="{{ route('admin.post.show', $post->id ) }}">{{$post->title}}</a></td>
                   <td>{{$post->author}}</td>
                   <td>{{$post->getFormattedDate('post_date')}}</td>
-                  <td>{{$post->category_id}}</td>
+                  @if ($post->category)
+                  <td>{{$post->category->name}}</td>
+                  @else
+                  <td>Non ha categoria</td>
+                  @endif 
                   <td><a class="btn btn-warning px-3" href="{{ route('admin.post.edit', $post->id ) }}">Modifica</a></td>
                   <td>
                     <form action="{{ route('admin.post.destroy', $post->id ) }}" method="post">
