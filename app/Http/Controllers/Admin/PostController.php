@@ -101,7 +101,7 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $data = $request->all();
-
+        $data['user_id'] = Auth::user()->id;
         $post->update($data);
 
         return redirect()->route('admin.post.show', compact('post'));
