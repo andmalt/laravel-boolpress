@@ -25,7 +25,7 @@
               <tr>
                   <th scope="row">{{$post->id}}</th>
                   <td><a href="{{ route('admin.post.show', $post->id ) }}">{{$post->title}}</a></td>
-                  <td>{{$post->user_id}}</td>
+                  <td>{{$post->user->name}}</td>
                   <td>{{$post->getFormattedDate('post_date')}}</td>
                   @if ($post->category)
                   <td>{{$post->category->name}}</td>

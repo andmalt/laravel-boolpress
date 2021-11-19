@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -45,7 +46,6 @@ class PostController extends Controller
     {
         $request->validate([
             'title'=>'required|unique:posts|max:100',
-            'author' =>'required|string|max:80',
             'post_content'=>'required|min:20',
             'image_url'=>'string'
         ],
@@ -56,7 +56,8 @@ class PostController extends Controller
 
         $data = $request->all();
         $data['post_date'] = Carbon::now();
-        
+        $data['user_id'] = Auth::user()->id;
+
         $newPost = new Post();
 
         $newPost->fill($data);

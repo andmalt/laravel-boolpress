@@ -28,10 +28,7 @@
                     <label for="title" class="form-label">Titolo</label>
                     <input type="text" class="form-control" id="title" name="title" placeholder="Inserisci il titolo del post" value="{{$post->title}}">
                 </div>
-                <div class="mb-3">
-                    <label for="author" class="form-label">Autore</label>
-                    <input type="text" class="form-control" id="author"  name="author" placeholder="Inserisci il nome dell'autore" value="{{$post->user_id}}">
-                </div>
+
                 <div class="mb-3">
                     <label for="image_url" class="form-label">Immagine</label>
                     <input type="text" class="form-control" id="image_url"  name="image_url" placeholder="Immagine post" value="{{$post->image_url}}">
