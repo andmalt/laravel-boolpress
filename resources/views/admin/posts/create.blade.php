@@ -38,7 +38,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="author" class="form-label">Autore</label>
-                    <input type="text" class="form-control" id="author"  name="author" placeholder="Inserisci il nome dell'autore" value="{{old('author',$newPost->author)}}">
+                    <input type="text" class="form-control" id="author"  name="author" placeholder="Inserisci il nome dell'autore" value="{{old('author',$newPost->user_id)}}">
                 </div>
                 <div class="mb-3">
                     <label for="image_url" class="form-label">Immagine</label>

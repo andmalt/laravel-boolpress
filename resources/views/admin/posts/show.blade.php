@@ -8,7 +8,7 @@
                 <img src="{{$post->image_url}}" class="card-img-top" alt="{{$post->name}} image">
                 <div class="card-body">
                   <h4 class="card-title">{{$post->title}}</h4>
-                  <h5 class="card-title">by {{$post->author}}</h5> 
+                  <h5 class="card-title">by {{$post->user_id}}</h5> 
                   @if ($post->category)
                   <p>Categoria di {{$post->category->name}}</p>
                   @else
