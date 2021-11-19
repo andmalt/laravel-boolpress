@@ -15,6 +15,9 @@ class Post extends Model
     public function user(){
         return $this->belongsTo('App\User');
     }
+    public function Tags(){
+        return $this->belongsToMany('App\Models\Tag');
+    }
 
     public function getFormattedDate($column, $format = 'd-m-Y H:i:s'){
         return Carbon::create($this->$column)->format($format);
