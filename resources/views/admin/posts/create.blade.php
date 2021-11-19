@@ -15,12 +15,13 @@
             @endif
         </div>
         <div class="col-12 col-md-10 col-lg-8">
+            <h2>Crea un post</h2>
             <form action="{{ route('admin.post.store') }}" method="post">
                 @csrf
 
                 <label for="category_id"></label>
                 <select class="form-select my-3" name="category_id" id="category_id" aria-label="Default select example">
-                    <option  >Open this select menu</option>
+                    <option>Scegli la categoria</option>
                     @foreach ($categories as $category)
                     <option 
                     @if (old('category_id') == $category->id){
@@ -31,6 +32,14 @@
                     </option>
                     @endforeach
                 </select>
+
+                <div class="form-check form-check-inline mx-3">
+                @foreach ($tags as $tag)               
+                    <input type="checkbox" value="{{$tag->id}}" class="btn-check mx-2" id="tag-{{$tag->id}}" name="tags[]" >
+                    <label class="form-check-label" for="tag-{{$tag->id}}">{{$tag->name}}</label>
+                @endforeach
+                </div>
+
 
                 <div class="mb-3">
                     <label for="title" class="form-label">Titolo</label>

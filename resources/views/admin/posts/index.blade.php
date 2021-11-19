@@ -13,6 +13,7 @@
               <th scope="col">#</th>
               <th scope="col">Title</th>
               <th scope="col">Author</th>
+              <th scope="col">Tags</th>
               <th scope="col">Post Date</th>
               <th scope="col">Category</th>
               <th scope="col"></th>
@@ -27,11 +28,20 @@
                   <td><a href="{{ route('admin.post.show', $post->id ) }}">{{$post->title}}</a></td>
                   <td>{{$post->user->name}}</td>
                   <td>{{$post->getFormattedDate('post_date')}}</td>
+                  <td>
+                  @forelse ($post->tags as $tag)
+                  <span class="badge badge-secondary px-1" style="background-color: {{$tag->color}}">{{$tag->name}}</span>  
+                  @empty
+                  Non ha tag 
+                  @endforelse
+                  </td>
+
                   @if ($post->category)
                   <td>{{$post->category->name}}</td>
                   @else
                   <td>Non ha categoria</td>
                   @endif 
+
                   <td><a class="btn btn-warning px-3" href="{{ route('admin.post.edit', $post->id ) }}">Modifica</a></td>
                   <td>
                     <form action="{{ route('admin.post.destroy', $post->id ) }}" method="post">

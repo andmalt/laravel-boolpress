@@ -7,7 +7,7 @@
             <h3>Modifica Post</h3>
             <form action="{{ route('admin.post.update', $post->id ) }}" method="post">
                 @csrf
-
+                @method('PATCH')
 
                 <label for="category_id">Categoria</label>
                 <select class="form-select my-3" name="category_id" id="category_id" aria-label="Default select example">
@@ -23,7 +23,14 @@
                     @endforeach
                 </select>
 
-                @method('PATCH')
+                <div class="form-check form-check-inline mx-3">
+                    @foreach ($tags as $tag)               
+                        <input type="checkbox" value="{{$tag->id}}" class="btn-check mx-2" id="tag-{{$tag->id}}" name="tags[]" >
+                        <label class="form-check-label" for="tag-{{$tag->id}}">{{$tag->name}}</label>
+                    @endforeach
+                </div>
+
+                
                 <div class="mb-3">
                     <label for="title" class="form-label">Titolo</label>
                     <input type="text" class="form-control" id="title" name="title" placeholder="Inserisci il titolo del post" value="{{$post->title}}">
