@@ -29,7 +29,7 @@
                 <div class="form-check form-check-inline mx-3">
                     @foreach ($tags as $tag)               
                         <input type="checkbox" value="{{$tag->id}}" class="btn-check mx-2" id="tag-{{$tag->id}}" name="tags[]" 
-                        @if (in_array($tag->id, $tagIds)) checked @endif >
+                        @if (in_array($tag->id,old('tags',$tagIds ? $tagIds : [] ))) checked @endif >
                         <label class="form-check-label" for="tag-{{$tag->id}}">{{$tag->name}}</label>
                     @endforeach
                 </div>
