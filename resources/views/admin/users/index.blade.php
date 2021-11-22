@@ -29,12 +29,12 @@
                   @forelse ($user->roles as $role)
                   <span class="badge badge-secondary px-1" style="background-color: {{$role->color}}">{{$role->name}}</span>  
                   @empty
-                  Non ha tag 
+                  Non ha Ruoli 
                   @endforelse
                   </td>
                   <td><a class="btn btn-warning px-3" href="{{ route('admin.user.edit', $user->id ) }}">Modifica</a></td>
                   <td>
-                    <form action="{{ route('admin.post.destroy', $user->id ) }}" method="post">
+                    <form action="{{ route('admin.user.destroy', $user->id ) }}" method="post">
                       @csrf
 
                       @method('DELETE')
