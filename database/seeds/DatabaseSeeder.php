@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             UserInfoTableSeeder::class,
             CategoriesTableSeeder::class,
+            RolesTableSeeder::class,
             TagsTableSeeder::class,
             PostsTableSeeder::class ,
         ]);
