@@ -3,11 +3,7 @@
       <div class="container">
         <div class="row text-center">
             <div v-if="loading == false" class="col-12">
-                <div class="row ">
-                    <div class="col-12 d-flex justify-content-center">
-                        <PostCard :list="list" v-for="list in postList" :key="list.id" />
-                    </div>
-                </div>
+                <PostCard :list="list" v-for="list in postList" :key="list.id" />
             </div>
             <div v-else class="col-12 loader">
                 <div  class="spinner-border text-primary load" role="status">

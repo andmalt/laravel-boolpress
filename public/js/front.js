@@ -1990,10 +1990,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Main',
@@ -2026,9 +2022,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'PostCard',
-  props: {}
+  props: {
+    list: Object
+  }
 });
 
 /***/ }),
@@ -3189,21 +3195,14 @@ var render = function () {
     _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row text-center" }, [
         _vm.loading == false
-          ? _c("div", { staticClass: "col-12" }, [
-              _c("div", { staticClass: "row " }, [
-                _c(
-                  "div",
-                  { staticClass: "col-12 d-flex justify-content-center" },
-                  _vm._l(_vm.postList, function (list) {
-                    return _c("PostCard", {
-                      key: list.id,
-                      attrs: { list: list },
-                    })
-                  }),
-                  1
-                ),
-              ]),
-            ])
+          ? _c(
+              "div",
+              { staticClass: "col-12" },
+              _vm._l(_vm.postList, function (list) {
+                return _c("PostCard", { key: list.id, attrs: { list: list } })
+              }),
+              1
+            )
           : _c("div", { staticClass: "col-12 loader" }, [_vm._m(0)]),
       ]),
     ]),
@@ -3245,7 +3244,27 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", { staticClass: "card" }, [
+    _c("img", { staticClass: "card-img-top", attrs: { src: "", alt: "" } }),
+    _vm._v(" "),
+    _c("div", { staticClass: "card-body" }, [
+      _c("h4", { staticClass: "card-title" }, [_vm._v(_vm._s(_vm.list.title))]),
+      _vm._v(" "),
+      _c("p", { staticClass: "card-text" }, [
+        _vm._v("Scritto da " + _vm._s(_vm.list.user_id)),
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "card-text" }, [
+        _vm._v(_vm._s(_vm.list.post_content)),
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "card-text" }, [
+        _c("small", { staticClass: "text-muted" }, [
+          _vm._v(_vm._s(_vm.list.post_date)),
+        ]),
+      ]),
+    ]),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
