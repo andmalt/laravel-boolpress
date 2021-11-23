@@ -6,15 +6,15 @@
       <div class="col-12 col-md-10 col-lg-8 text-center p-4">
         <a class="btn btn-secondary" href="{{ route('admin.post.create') }}">Inserisci nuovo post</a>
       </div>
-      <div class="col-12 col-md-10 col-lg-8">
+      <div class="col-12 col-md-11 col-lg-9">
         <table class="table">
           <thead class="thead-light">
             <tr>
               <th scope="col">#</th>
               <th scope="col">Title</th>
               <th scope="col">Author</th>
-              <th scope="col">Tags</th>
               <th scope="col">Post Date</th>
+              <th scope="col">Tags</th>
               <th scope="col">Category</th>
               <th scope="col"></th>
               <th scope="col"></th>
