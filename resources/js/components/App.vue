@@ -1,5 +1,5 @@
 <template>
-    <Main />
+    <Main :loading="loading" :postList="postList" />
 </template>
 
 <script>
@@ -14,25 +14,29 @@ export default {
     },
     data(){
         return{
-
+            loading:false,
+            postList:[],
         }
     },
     methods:{
         getPostList(){
-            Axios.get('/user?ID=12345')
-            .then(function (res) {
-                // handle success
-                console.log(res);
+            this.loading = true;
+            Axios.get(`http://127.0.0.1:8000/api/post`)
+            .then((res)=> {
+                this.postList = [...res.data.posts];
+                console.log(this.postList);
             })
-            .catch(function (error) {
+            .catch((error)=> {
                 // handle error
-                console.log(error);
+                console.error(error);
+            }) 
+             .then(()=>{
+                this.loading = false;
             })
-            .then(function () {
-                // always executed
-            });
-
-        }
+        },
+    },
+    mounted(){
+        this.getPostList();
     }
 }
 </script>
