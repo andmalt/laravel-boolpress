@@ -1937,16 +1937,18 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   data: function data() {
     return {
       loading: false,
-      postList: []
+      postList: [],
+      baseUrl: 'http://127.0.0.1:8000'
     };
   },
   methods: {
-    getPostList: function getPostList() {
+    getPostList: function getPostList(page) {
       var _this = this;
 
       this.loading = true;
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("http://127.0.0.1:8000/api/post").then(function (res) {
-        _this.postList = _toConsumableArray(res.data.posts);
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("".concat(this.baseUrl, "/api/post/?page=").concat(page)).then(function (res) {
+        console.log(res.data.posts);
+        _this.postList = _toConsumableArray(res.data.posts.data);
         console.log(_this.postList);
       })["catch"](function (error) {
         // handle error
@@ -1957,7 +1959,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     }
   },
   mounted: function mounted() {
-    this.getPostList();
+    this.getPostList(2);
   }
 });
 

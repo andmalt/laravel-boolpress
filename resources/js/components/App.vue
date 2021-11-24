@@ -16,14 +16,16 @@ export default {
         return{
             loading:false,
             postList:[],
+            baseUrl: 'http://127.0.0.1:8000',
         }
     },
     methods:{
-        getPostList(){
+        getPostList(page){
             this.loading = true;
-            Axios.get(`http://127.0.0.1:8000/api/post`)
+            Axios.get(`${this.baseUrl}/api/post/?page=${page}`)
             .then((res)=> {
-                this.postList = [...res.data.posts];
+                console.log(res.data.posts);
+                this.postList = [...res.data.posts.data];
                 console.log(this.postList);
             })
             .catch((error)=> {
@@ -36,7 +38,7 @@ export default {
         },
     },
     mounted(){
-        this.getPostList();
+        this.getPostList(2);
     }
 }
 </script>
