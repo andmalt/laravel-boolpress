@@ -58,6 +58,9 @@
           </tbody>
         </table>
       </div>
+      <div class="col-12 py-4 d-flex justify-content-center">
+        {{ $posts->links() }} 
+      </div>
     </div>
 </div>
 @endsection

@@ -1,6 +1,6 @@
 <template>
-    <div class="card">
-        <img src="" class="card-img-top" alt="">
+    <div class="card my-4">
+        <img :src="list.image_url" class="card-img-top" :alt="list.title + 'image'">
         <div class="card-body">
         <h4 class="card-title">{{ list.title }}</h4>
         <p class="card-text">Scritto da {{ list.user_id }}</p>
