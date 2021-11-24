@@ -1990,6 +1990,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Main',
@@ -2044,7 +2048,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".loader[data-v-2eed6ec0] {\n  position: fixed;\n  right: 0;\n  left: 0;\n  bottom: 0;\n  top: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  background-color: rgba(0, 0, 0, 0.7);\n  z-index: 5;\n}\n.loader .load[data-v-2eed6ec0] {\n  padding: 5rem;\n}\n.container[data-v-2eed6ec0] {\n  position: relative;\n}", ""]);
+exports.push([module.i, ".loader[data-v-2eed6ec0] {\n  position: fixed;\n  right: 0;\n  left: 0;\n  bottom: 0;\n  top: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  background-color: rgba(0, 0, 0, 0.7);\n  z-index: 5;\n}\n.loader .load[data-v-2eed6ec0] {\n  padding: 5rem;\n}\n.container[data-v-2eed6ec0] {\n  position: relative;\n}\n.page-item .active[data-v-2eed6ec0] {\n  background-color: #e9ecef;\n}", ""]);
 
 // exports
 
@@ -3191,62 +3195,44 @@ var render = function () {
     _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row text-center" }, [
         _vm.loading == false
-          ? _c(
-              "div",
-              { staticClass: "col-12" },
-              [
-                _vm._l(_vm.postList.data, function (list) {
-                  return _c("PostCard", { key: list.id, attrs: { list: list } })
-                }),
-                _vm._v(" "),
+          ? _c("div", { staticClass: "col-12" }, [
+              _c("div", { staticClass: "row justify-content-center" }, [
                 _c(
                   "div",
-                  { staticClass: "col-12 d-flex justify-content-center py-4" },
-                  [
-                    _c(
-                      "nav",
-                      { attrs: { "aria-label": "Page navigation example" } },
-                      [
-                        _c(
-                          "ul",
-                          { staticClass: "pagination" },
-                          [
-                            _vm.postList.current_page > 1
-                              ? _c(
-                                  "li",
-                                  {
-                                    staticClass: "page-item",
-                                    on: {
-                                      click: function ($event) {
-                                        return _vm.$emit(
-                                          "getPostList",
-                                          _vm.postList.current_page - 1
-                                        )
-                                      },
-                                    },
-                                  },
-                                  [
-                                    _c(
-                                      "a",
-                                      {
-                                        staticClass: "page-link",
-                                        attrs: { href: "#" },
-                                      },
-                                      [_vm._v("Previous")]
-                                    ),
-                                  ]
-                                )
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _vm._l(_vm.postList.last_page, function (n) {
-                              return _c(
+                  { staticClass: "col-12 col-md-10 col-lg-8" },
+                  _vm._l(_vm.postList.data, function (list) {
+                    return _c("PostCard", {
+                      key: list.id,
+                      attrs: { list: list },
+                    })
+                  }),
+                  1
+                ),
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-12 d-flex justify-content-center py-4" },
+                [
+                  _c(
+                    "nav",
+                    { attrs: { "aria-label": "Page navigation example" } },
+                    [
+                      _c(
+                        "ul",
+                        { staticClass: "pagination" },
+                        [
+                          _vm.postList.current_page > 1
+                            ? _c(
                                 "li",
                                 {
-                                  key: n,
                                   staticClass: "page-item",
                                   on: {
                                     click: function ($event) {
-                                      return _vm.$emit("getPostList", n)
+                                      return _vm.$emit(
+                                        "getPostList",
+                                        _vm.postList.current_page - 1
+                                      )
                                     },
                                   },
                                 },
@@ -3257,48 +3243,75 @@ var render = function () {
                                       staticClass: "page-link",
                                       attrs: { href: "#" },
                                     },
-                                    [_vm._v(_vm._s(n))]
+                                    [_vm._v("Previous")]
                                   ),
                                 ]
                               )
-                            }),
-                            _vm._v(" "),
-                            _vm.postList.current_page < _vm.postList.last_page
-                              ? _c(
-                                  "li",
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm._l(_vm.postList.last_page, function (n) {
+                            return _c(
+                              "li",
+                              {
+                                key: n,
+                                staticClass: "page-item",
+                                class:
+                                  n == _vm.postList.current_page
+                                    ? "active"
+                                    : "",
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.$emit("getPostList", n)
+                                  },
+                                },
+                              },
+                              [
+                                _c(
+                                  "a",
                                   {
-                                    staticClass: "page-item",
-                                    on: {
-                                      click: function ($event) {
-                                        return _vm.$emit(
-                                          "getPostList",
-                                          _vm.postList.current_page + 1
-                                        )
-                                      },
+                                    staticClass: "page-link",
+                                    attrs: { href: "#" },
+                                  },
+                                  [_vm._v(_vm._s(n))]
+                                ),
+                              ]
+                            )
+                          }),
+                          _vm._v(" "),
+                          _vm.postList.current_page < _vm.postList.last_page
+                            ? _c(
+                                "li",
+                                {
+                                  staticClass: "page-item",
+                                  on: {
+                                    click: function ($event) {
+                                      return _vm.$emit(
+                                        "getPostList",
+                                        _vm.postList.current_page + 1
+                                      )
                                     },
                                   },
-                                  [
-                                    _c(
-                                      "a",
-                                      {
-                                        staticClass: "page-link",
-                                        attrs: { href: "#" },
-                                      },
-                                      [_vm._v("Next")]
-                                    ),
-                                  ]
-                                )
-                              : _vm._e(),
-                          ],
-                          2
-                        ),
-                      ]
-                    ),
-                  ]
-                ),
-              ],
-              2
-            )
+                                },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "page-link",
+                                      attrs: { href: "#" },
+                                    },
+                                    [_vm._v("Next")]
+                                  ),
+                                ]
+                              )
+                            : _vm._e(),
+                        ],
+                        2
+                      ),
+                    ]
+                  ),
+                ]
+              ),
+            ])
           : _c("div", { staticClass: "col-12 loader" }, [_vm._m(0)]),
       ]),
     ]),

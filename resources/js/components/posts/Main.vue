@@ -3,13 +3,17 @@
       <div class="container">
         <div class="row text-center">
             <div v-if="loading == false" class="col-12">
-                <PostCard :list="list" v-for="list in postList.data" :key="list.id" />
-
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10 col-lg-8">
+                        <PostCard :list="list" v-for="list in postList.data" :key="list.id" />
+                    </div>
+                </div>
+        
                 <div class="col-12 d-flex justify-content-center py-4">
                     <nav aria-label="Page navigation example">
                         <ul class="pagination">
                             <li v-if="postList.current_page > 1 " @click="$emit('getPostList', postList.current_page - 1 )" class="page-item"><a class="page-link" href="#" >Previous</a></li>
-                            <li v-for="n in postList.last_page" @click="$emit('getPostList', n )" :key="n" class="page-item"><a class="page-link" href="#">{{ n }}</a></li>
+                            <li v-for="n in postList.last_page" @click="$emit('getPostList', n )" :class="n == postList.current_page  ? 'active' : '' " :key="n" class="page-item"><a class="page-link" href="#">{{ n }}</a></li>
                             <li v-if="postList.current_page < postList.last_page" @click="$emit('getPostList', postList.current_page + 1 )" class="page-item"><a class="page-link" href="#">Next</a></li>
                         </ul>
                     </nav>
@@ -63,5 +67,10 @@ export default {
 }
 .container{
     position: relative;
+}
+.page-item{
+    .active{
+        background-color: #e9ecef;
+    }
 }
 </style>
