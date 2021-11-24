@@ -1911,18 +1911,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _posts_Main_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./posts/Main.vue */ "./resources/js/components/posts/Main.vue");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
 //
 //
 //
@@ -1947,8 +1935,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
       this.loading = true;
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("".concat(this.baseUrl, "/api/post/?page=").concat(page)).then(function (res) {
-        console.log(res.data.posts);
-        _this.postList = _toConsumableArray(res.data.posts.data);
+        /* console.log(res.data.posts); */
+        _this.postList = res.data.posts.data;
         console.log(_this.postList);
       })["catch"](function (error) {
         // handle error
@@ -1959,7 +1947,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     }
   },
   mounted: function mounted() {
-    this.getPostList(2);
+    this.getPostList(1);
   }
 });
 
@@ -3256,7 +3244,7 @@ var render = function () {
       _c("h4", { staticClass: "card-title" }, [_vm._v(_vm._s(_vm.list.title))]),
       _vm._v(" "),
       _c("p", { staticClass: "card-text" }, [
-        _vm._v("Scritto da " + _vm._s(_vm.list.user_id)),
+        _vm._v("Scritto da " + _vm._s(_vm.list.user.name)),
       ]),
       _vm._v(" "),
       _c("p", { staticClass: "card-text" }, [

@@ -28,6 +28,7 @@ export default {
     props:{
         loading:Boolean,
         postList:Array,
+        
     },
     components:{
     PostCard,

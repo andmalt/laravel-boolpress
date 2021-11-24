@@ -24,8 +24,8 @@ export default {
             this.loading = true;
             Axios.get(`${this.baseUrl}/api/post/?page=${page}`)
             .then((res)=> {
-                console.log(res.data.posts);
-                this.postList = [...res.data.posts.data];
+                /* console.log(res.data.posts); */
+                this.postList = res.data.posts.data;
                 console.log(this.postList);
             })
             .catch((error)=> {
@@ -38,7 +38,7 @@ export default {
         },
     },
     mounted(){
-        this.getPostList(2);
+        this.getPostList(1);
     }
 }
 </script>
