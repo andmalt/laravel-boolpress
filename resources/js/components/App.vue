@@ -1,5 +1,5 @@
 <template>
-    <Main :loading="loading" :postList="postList" />
+    <Main :loading="loading" :postList="postList" @getPostList="getPostList" />
 </template>
 
 <script>
@@ -24,8 +24,8 @@ export default {
             this.loading = true;
             Axios.get(`${this.baseUrl}/api/post/?page=${page}`)
             .then((res)=> {
-                /* console.log(res.data.posts); */
-                this.postList = res.data.posts.data;
+                console.log(res.data.posts);
+                this.postList = res.data.posts;
                 console.log(this.postList);
             })
             .catch((error)=> {

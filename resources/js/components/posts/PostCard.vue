@@ -13,9 +13,9 @@
 <script>
 export default {
     name:'PostCard',
-    props:{
-        list:Object,
-    }
+    props:[
+        'list',
+    ]
 }
 </script>
 
