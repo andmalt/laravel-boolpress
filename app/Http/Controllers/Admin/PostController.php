@@ -8,8 +8,10 @@ use App\Models\Post;
 use App\Models\Category;
 use App\Models\Tag;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+
 
 class PostController extends Controller
 {
@@ -58,19 +60,20 @@ class PostController extends Controller
         ]);
 
         $data = $request->all();
+        /* dd($data); */
         $data['post_date'] = Carbon::now();
         $data['user_id'] = Auth::user()->id;
-
+        $data['image_url'] = Storage::put( 'public' , $data['image']);
         $newPost = new Post();
-
         $newPost->fill($data);
+        
         $newPost->save();
 
         if(array_key_exists('tags', $data)){
             $newPost->tags()->sync($data['tags']);
         }
 
-        return redirect()->route('admin.post.show', $newPost->id);
+        return redirect()->route('admin.post.show', compact('newPost','image_path'));
     }
 
     /**

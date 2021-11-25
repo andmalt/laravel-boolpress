@@ -7,7 +7,7 @@ use Illuminate\Support\Carbon;
 
 class Post extends Model
 {
-    protected $fillable = ['title','user_id','post_date','post_content','image_url','category_id'];
+    protected $fillable = ['title','user_id','post_date','post_content','image_url','category_id',];
 
     public function category(){
         return $this->belongsTo('App\Models\Category');

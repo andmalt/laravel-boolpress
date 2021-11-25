@@ -24,7 +24,7 @@ export default {
             this.loading = true;
             Axios.get(`${this.baseUrl}/api/post/?page=${page}`)
             .then((res)=> {
-                console.log(res.data.posts);
+                /* console.log(res.data.posts); */
                 this.postList = res.data.posts;
                 console.log(this.postList);
             })

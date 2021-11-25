@@ -1935,7 +1935,7 @@ __webpack_require__.r(__webpack_exports__);
 
       this.loading = true;
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("".concat(this.baseUrl, "/api/post/?page=").concat(page)).then(function (res) {
-        console.log(res.data.posts);
+        /* console.log(res.data.posts); */
         _this.postList = res.data.posts;
         console.log(_this.postList);
       })["catch"](function (error) {

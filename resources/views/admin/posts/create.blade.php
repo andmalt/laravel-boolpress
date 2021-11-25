@@ -16,11 +16,11 @@
         </div>
         <div class="col-12 col-md-10 col-lg-8">
             <h2>Crea un post</h2>
-            <form action="{{ route('admin.post.store') }}" method="post">
+            <form  action="{{ route('admin.post.store') }}" method="post" enctype="multipart/form-data" >
                 @csrf
 
                 <label for="category_id"></label>
-                <select class="form-select my-3" name="category_id" id="category_id" aria-label="Default select example">
+                <select class="form-select my-3" name="category_id" id="category_id" aria-label="Default select example" >
                     <option>Scegli la categoria</option>
                     @foreach ($categories as $category)
                     <option 
@@ -47,8 +47,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="image_url" class="form-label">Immagine</label>
-                    <input type="text" class="form-control" id="image_url"  name="image_url" placeholder="Immagine post" value="{{old('image_url',$newPost->image_url)}}">
+                    <label for="image" class="form-label">Immagine</label>
+                    <input type="file" class="form-control" id="image"  name="image" placeholder="inserisci immagine" value="{{old('image_url',$newPost->image_url)}}">
                 </div>
                 <div class="mb-3">
                     <label for="post_content" class="form-label">Testo</label>
