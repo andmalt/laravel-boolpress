@@ -48,7 +48,7 @@
 
                 <div class="mb-3">
                     <label for="image" class="form-label">Immagine</label>
-                    <input type="file" class="form-control" id="image"  name="image" placeholder="inserisci immagine" value="{{old('image_url',$newPost->image_url)}}">
+                    <input type="file" class="form-control" id="image"  name="image" value="{{old('image_url',$newPost->image_url)}}">
                 </div>
                 <div class="mb-3">
                     <label for="post_content" class="form-label">Testo</label>

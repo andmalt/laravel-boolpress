@@ -63,7 +63,7 @@ class PostController extends Controller
         /* dd($data); */
         $data['post_date'] = Carbon::now();
         $data['user_id'] = Auth::user()->id;
-        $data['image_url'] = Storage::put( 'public' , $data['image']);
+        $data['image_url'] = Storage::put( 'posts/images' , $data['image']);
         $newPost = new Post();
         $newPost->fill($data);
         
@@ -84,7 +84,14 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return view('admin.posts.show',compact('post'));
+        $imagePrefix = '';
+        if(!str_starts_with($post->image_url ,'http')){
+            $imagePrefix = asset('storage/'.$post->image_url);
+        }else{
+            $imagePrefix = $post->image_url;
+        }
+
+        return view('admin.posts.show',compact('post','imagePrefix'));
     }
 
     /**
@@ -114,6 +121,7 @@ class PostController extends Controller
         $data = $request->all();
         $data['post_date'] = Carbon::now();
         $data['user_id'] = Auth::user()->id;
+        $data['image_url'] = Storage::put('posts/images', $data['image']);
         $post->update($data);
 
         if(array_key_exists('tags', $data)){

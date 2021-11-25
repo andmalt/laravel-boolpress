@@ -5,8 +5,8 @@
     <div class="row justify-content-center">
         <div class="col-12 col-md-10 col-lg-8">
             <div class="card mb-3">
-                {{-- <img src="{{asset('storage/' .post->image_url)}}" class="card-img-top" alt="{{$post->name}} image">
-                <div class="card-body"> --}}
+                <img src="{{ $imagePrefix }}" class="card-img-top" alt="{{$post->name}} image">
+                <div class="card-body">
                   <h4 class="card-title">{{$post->title}}</h4>
                   <h5 class="card-title">by {{$post->user->name}}</h5> 
                   @if ($post->category)

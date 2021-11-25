@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-12 col-md-10 col-lg-8">
             <h3>Modifica Post</h3>
-            <form action="{{ route('admin.post.update', $post->id ) }}" method="post">
+            <form action="{{ route('admin.post.update', $post->id ) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
 
@@ -41,8 +41,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="image_url" class="form-label">Immagine</label>
-                    <input type="text" class="form-control" id="image_url"  name="image_url" placeholder="Immagine post" value="{{$post->image_url}}">
+                    <label for="image" class="form-label">Immagine</label>
+                    <input type="file" class="form-control" id="image"  name="image" value="{{$post->image_url}}">
                 </div>
                 <div class="mb-3">
                     <label for="post_content" class="form-label">Testo</label>
