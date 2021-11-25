@@ -52,7 +52,7 @@ class PostController extends Controller
         $request->validate([
             'title'=>'required|unique:posts|max:100',
             'post_content'=>'required|min:20',
-            'image_url'=>'string'
+            'image'=>'image'
         ],
         [
             'required'=>'Devi compilare correttamente il campo :attribute',
@@ -118,6 +118,19 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        $request->validate(
+            [
+                'title' => 'required|unique:posts|max:100',
+                'post_content' => 'required|min:20',
+                'image' => 'image'
+            ],
+            [
+                'required' => 'Devi compilare correttamente il campo :attribute',
+                'post_content.min' => 'Il post deve essere lungo almeno di 20 caratteri',
+            ]
+        );
+
+
         $data = $request->all();
         $data['post_date'] = Carbon::now();
         $data['user_id'] = Auth::user()->id;
