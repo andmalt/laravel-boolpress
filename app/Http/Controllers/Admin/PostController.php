@@ -73,7 +73,7 @@ class PostController extends Controller
             $newPost->tags()->sync($data['tags']);
         }
 
-        return redirect()->route('admin.post.show', compact('newPost','image_path'));
+        return redirect()->route('admin.post.show', $newPost->id );
     }
 
     /**

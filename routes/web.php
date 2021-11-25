@@ -21,7 +21,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::middleware('auth')
-->namespace('admin')
+->namespace('Admin')
 ->name('admin.')
 ->prefix('admin')
 ->group(function(){
