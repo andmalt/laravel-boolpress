@@ -29,7 +29,7 @@
 
                 <div class="mb-3">
                     <label for="email_address" class="form-label">Email</label>
-                    <input type="file" class="form-control" id="email_address"  name="email_address" >
+                    <input type="text" class="form-control" id="email_address"  name="email_address" placeholder="inserisci l'email" >
                 </div>
                 <div class="mb-3">
                     <label for="message" class="form-label">Messaggio</label>

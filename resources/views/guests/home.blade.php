@@ -24,6 +24,7 @@
                             <a href="{{ route('register') }}">Register</a>
                         @endif
                     @endauth
+                    <a href="{{ route('guests.contact') }}">contact us</a>
                 </div>
             @endif
         </div>
