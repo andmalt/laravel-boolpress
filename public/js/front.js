@@ -3356,7 +3356,12 @@ var render = function () {
   return _c("div", { staticClass: "card my-4" }, [
     _c("img", {
       staticClass: "card-img-top",
-      attrs: { src: _vm.list.image_url, alt: _vm.list.title + "image" },
+      attrs: {
+        src: _vm.list.image_url.startsWith("posts/images")
+          ? "storage/" + _vm.list.image_url
+          : _vm.list.image_url,
+        alt: _vm.list.title + "image",
+      },
     }),
     _vm._v(" "),
     _c("div", { staticClass: "card-body" }, [

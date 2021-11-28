@@ -1,6 +1,6 @@
 <template>
     <div class="card my-4">
-        <img :src="list.image_url" class="card-img-top" :alt="list.title + 'image'">
+        <img :src="list.image_url.startsWith('posts/images') ? 'storage/'+ list.image_url : list.image_url" class="card-img-top" :alt="list.title + 'image'">
         <div class="card-body">
         <h4 class="card-title">{{ list.title }}</h4>
         <p class="card-text">Scritto da {{ list.user.name }}</p>
