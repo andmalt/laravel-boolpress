@@ -20,8 +20,10 @@ Route::post('/contatti', 'Guests\HomeController@createContact')->name('guests.co
 Route::get('/thanks', 'Guests\HomeController@thanks')->name('guests.thanks');
 
 Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::middleware('auth')
+->middleware('verified')
 ->namespace('Admin')
 ->name('admin.')
 ->prefix('admin')
