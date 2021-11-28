@@ -19,7 +19,6 @@ Route::get('/contatti', 'Guests\HomeController@contact')->name('guests.contact')
 Route::post('/contatti', 'Guests\HomeController@createContact')->name('guests.contact.send');
 Route::get('/thanks', 'Guests\HomeController@thanks')->name('guests.thanks');
 
-Auth::routes();
 Auth::routes(['verify' => true]);
 
 Route::middleware('auth')
