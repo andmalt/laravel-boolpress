@@ -14,13 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('guests.home');
-})->name('guests.home');
+Route::get('/', 'Guests\HomeController@index')->name('guests.home');
+Route::get('/contatti', 'Guests\HomeController@contact')->name('guests.contact');
+Route::post('/contatti', 'Guests\HomeController@createContact')->name('guests.contact.send');
+Route::get('/thanks', 'Guests\HomeController@thanks')->name('guests.thanks');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::middleware('auth')
+->middleware('verified')
 ->namespace('Admin')
 ->name('admin.')
 ->prefix('admin')
